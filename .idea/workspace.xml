@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="533c95de-bff7-4fc4-ba19-d314ba82ffaf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/LineUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/LineUpFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/Nfl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/ILineUpGenerationStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/nflfilter/DefaultNflFilterStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/nflfilter/IFilterNflStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/points/DefaultPointStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/points/ICustomPointStrategy.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="7nsbwsif" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2CPL83Ntwp4IzKMzyJOYQVBJGaT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Language Defaults"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.org.fball.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.fball.Main" />
+      <module name="Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.fball.points.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.org.fball.Main" />
+      <item itemvalue="Maven.Test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.org.fball.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="533c95de-bff7-4fc4-ba19-d314ba82ffaf" name="Changes" comment="" />
+      <created>1658699116280</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658699116280</updated>
+      <workItem from="1658699117845" duration="19918000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="jdk.internal.net.http.ImmutableHttpRequest" memberName="expectContinue" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>
