@@ -23,7 +23,7 @@ public class LineUp {
                 getSafePoints(this.dst);
     }
 
-    public boolean isSalaryValid() {
+    private boolean isSalaryValid() {
         return getSalary() + (10 * getEmptySpots()) < MAX_SALARY;
     }
 
@@ -37,7 +37,22 @@ public class LineUp {
     }
 
     public boolean isLineupValid(){
-        return isSalaryValid() && getEmptySpots() == 0;
+        return positionsValid() && isSalaryValid();
+    }
+
+    private boolean positionsValid(){
+        if (getEmptySpots() != 0){
+            return false;
+        }
+        var qbvalid = this.qbOne.getPosition().equalsIgnoreCase(Position.QB.name());
+        var rbvalid = this.rbOne.getPosition().equalsIgnoreCase(Position.RB.name()) && this.rbTwo.getPosition().equalsIgnoreCase(Position.RB.name());
+        var wrValid = this.wrOne.getPosition().equalsIgnoreCase(Position.WR.name()) && this.wrTwo.getPosition().equalsIgnoreCase(Position.WR.name()) &&
+                this.wrThree.getPosition().equalsIgnoreCase(Position.WR.name());
+        var teValid = this.teOne.getPosition().equalsIgnoreCase(Position.TE.name());
+        var flexPosition = this.flex.getPosition();
+        var flexValid = flexPosition.equalsIgnoreCase(Position.RB.name()) || flexPosition.equalsIgnoreCase(Position.WR.name()) || flexPosition.equalsIgnoreCase(Position.TE.name());
+        var dstValid = this.dst.getPosition().equalsIgnoreCase(Position.DST.name());
+        return qbvalid && rbvalid && wrValid && teValid && flexValid && dstValid;
     }
 
     private int safeSalary(Player p){

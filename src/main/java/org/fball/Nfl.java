@@ -15,8 +15,8 @@ public class Nfl {
 
     @Override
     public String toString(){
-        return printPosition(QB, "QB") + printPosition(RB, "RB") + printPosition(WR, "WR") +
-                printPosition(TE, "TE") + printPosition(DST, "DST");
+        return printPosition(QB, Position.QB.name()) + printPosition(RB, Position.RB.name()) + printPosition(WR, Position.WR.name()) +
+                printPosition(TE, Position.TE.name()) + printPosition(DST, Position.DST.name());
     }
 
     public ArrayList<Player> getFlexPlayers(){

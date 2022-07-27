@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="533c95de-bff7-4fc4-ba19-d314ba82ffaf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/LineUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/LineUpFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/Nfl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/ILineUpGenerationStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/nflfilter/DefaultNflFilterStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/nflfilter/IFilterNflStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/points/DefaultPointStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/points/ICustomPointStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/LineUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/LineUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/Nfl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/Nfl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/points/DefaultPointStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/points/DefaultPointStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/points/ICustomPointStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/points/IPointStrategy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +23,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -64,7 +55,7 @@
   }
 }]]></component>
   <component name="RunManager" selected="Application.org.fball.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="org.fball.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.fball.Main" />
       <module name="Test" />
       <extension name="coverage">
@@ -118,7 +109,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658699116280</updated>
-      <workItem from="1658699117845" duration="19918000" />
+      <workItem from="1658699117845" duration="21867000" />
     </task>
     <servers />
   </component>

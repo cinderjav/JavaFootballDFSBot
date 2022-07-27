@@ -1,11 +1,11 @@
 package org.fball;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fball.points.DefaultPointStrategy;
-import org.fball.points.ICustomPointStrategy;
+import org.fball.points.IPointStrategy;
 
 import java.util.ArrayList;
 public class Player {
-    public static ICustomPointStrategy strategy = new DefaultPointStrategy();
+    public static IPointStrategy strategy = new DefaultPointStrategy();
     public String name;
     public int salary;
     public String position;
@@ -52,6 +52,10 @@ public class Player {
             throw new RuntimeException("Must specify points Strategy.");
         }
         return strategy.getPoints(this);
+    }
+
+    public String getPosition (){
+        return this.position;
     }
 
     public double getEfficiency(){
