@@ -70,7 +70,6 @@ public class Player implements Comparable<Player>{
 
     @Override
     public int compareTo(Player o) {
-        var val = (int)-((this.getEfficiency() * 100) - (o.getEfficiency() * 100) );
-        return val;
+        return -Double.compare(this.getEfficiency(), o.getEfficiency());
     }
 }

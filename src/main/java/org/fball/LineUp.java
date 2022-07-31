@@ -110,7 +110,7 @@ public class LineUp {
         var returnedString = "---------------------------------------------------\n";
         returnedString += "Projected Points: %s".formatted(this.getPoints()) + "\n";
         returnedString += "Salary: %s".formatted(this.getSalary()) + "\n";
-        returnedString += qbOne + "\n" + rbOne + "\n" + rbTwo + "\n" + wrOne + "\n" + wrTwo + "\n" + wrThree + "\n" + flex + "\n" + dst;
+        returnedString += qbOne + "\n" + rbOne + "\n" + rbTwo + "\n" + wrOne + "\n" + wrTwo + "\n" + wrThree + "\n" + flex + "\n" + dst + "\n";
         returnedString += "---------------------------------------------------\n";
         return returnedString;
     }

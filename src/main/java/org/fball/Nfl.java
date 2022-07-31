@@ -23,6 +23,7 @@ public class Nfl {
         var flexArray = new ArrayList<Player>();
         flexArray.addAll(RB);
         flexArray.addAll(WR);
+        flexArray.addAll(TE);
         return flexArray;
     }
 
