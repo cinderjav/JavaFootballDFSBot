@@ -26,11 +26,11 @@ public class Nfl {
         return flexArray;
     }
 
-    public static void filterNfl(Nfl nfl){
+    public static Nfl filterNfl(Nfl nfl){
         if (strategy == null) {
             throw new RuntimeException("Must Specify Filter Strategy");
         }
-        strategy.filterNfl(nfl);
+        return strategy.filterNfl(nfl);
     }
 
     private String printPosition(ArrayList<Player> players, String pos) {

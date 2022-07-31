@@ -4,6 +4,7 @@ import org.fball.Nfl;
 import org.fball.Player;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Hashtable;
 
 public class DefaultNflFilterStrategy implements IFilterNflStrategy {
@@ -16,6 +17,12 @@ public class DefaultNflFilterStrategy implements IFilterNflStrategy {
 
     private void defaultNflFilter(Nfl nfl){
         // Can add specific players to filter for week here as well
+        Collections.sort(nfl.QB);
+        Collections.sort(nfl.RB);
+        Collections.sort(nfl.WR);
+        Collections.sort(nfl.TE);
+        Collections.sort(nfl.DST);
+
         nfl.QB = filterPlayers(nfl.QB, 1);
         nfl.RB = filterPlayers(nfl.RB, 2);
         nfl.WR = filterPlayers(nfl.WR, 2);
@@ -23,7 +30,6 @@ public class DefaultNflFilterStrategy implements IFilterNflStrategy {
         nfl.DST = filterPlayers(nfl.DST, 1);
     }
     private ArrayList<Player> filterPlayers(ArrayList<Player> players, int finalTarget){
-        // Should enhance to rely on my p.getPoints and then can correctly filter
         Hashtable<Integer, Integer> salaryCountHash = new Hashtable<>();
         ArrayList<Player> playersPostFilter = new ArrayList<>();
         for (Player p : players) {

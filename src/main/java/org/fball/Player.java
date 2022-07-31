@@ -4,7 +4,7 @@ import org.fball.points.DefaultPointStrategy;
 import org.fball.points.IPointStrategy;
 
 import java.util.ArrayList;
-public class Player {
+public class Player implements Comparable<Player>{
     public static IPointStrategy strategy = new DefaultPointStrategy();
     public String name;
     public int salary;
@@ -66,5 +66,11 @@ public class Player {
     @Override
     public String toString(){
         return this.name + "[%s][%s][%s], ".formatted(this.getPlayerPoints(), this.salary, this.getEfficiency());
+    }
+
+    @Override
+    public int compareTo(Player o) {
+        var val = (int)-((this.getEfficiency() * 100) - (o.getEfficiency() * 100) );
+        return val;
     }
 }

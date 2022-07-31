@@ -9,7 +9,7 @@ public class LineUpFactory {
 
     public static ILineUpGenerationStrategy strategy = new DefaultLineUpGenerationStrategy();
     public static ArrayList<LineUp> generateBestLineUp(Nfl nfl){
-        Nfl.filterNfl(nfl);
+        nfl = Nfl.filterNfl(nfl);
         var lineups = strategy.generateLineUp(nfl);
         for (LineUp lineUp : lineups) {
             if (!lineUp.isLineupValid()) {
