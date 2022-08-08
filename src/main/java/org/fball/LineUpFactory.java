@@ -3,6 +3,7 @@ package org.fball;
 import org.fball.lineupgen.DefaultLineUpGenerationStrategy;
 import org.fball.lineupgen.ILineUpGenerationStrategy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LineUpFactory {

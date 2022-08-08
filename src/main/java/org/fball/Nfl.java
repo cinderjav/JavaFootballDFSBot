@@ -2,12 +2,14 @@ package org.fball;
 
 import org.fball.nflfilter.DefaultNflFilterStrategy;
 import org.fball.nflfilter.IFilterNflStrategy;
+import org.fball.playernames.IPlayerBlackListStrategy;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Nfl {
     public static IFilterNflStrategy strategy = new DefaultNflFilterStrategy();
+    public static IPlayerBlackListStrategy pAllowStrategy;
     public ArrayList<Player> QB;
     public ArrayList<Player> RB;
     public ArrayList<Player> WR;
@@ -39,6 +41,12 @@ public class Nfl {
         if (strategy == null) {
             throw new RuntimeException("Must Specify Filter Strategy");
         }
+        if (pAllowStrategy != null){
+            var bListPlayers = pAllowStrategy.getBlackList(nfl);
+            if (bListPlayers.size() > 0) {
+                Nfl.removeNflPlayers(bListPlayers, nfl);
+            }
+        }
         return strategy.filterNfl(nfl);
     }
 
@@ -50,6 +58,14 @@ public class Nfl {
         newNfl.TE = new ArrayList<>(this.TE);
         newNfl.DST = new ArrayList<>(this.DST);
         return newNfl;
+    }
+
+    private static void removeNflPlayers(ArrayList<Player> bList, Nfl nfl){
+        nfl.QB = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
+        nfl.RB = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
+        nfl.WR = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
+        nfl.TE = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
+        nfl.DST = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
     }
 
     private String printPosition(ArrayList<Player> players, String pos) {

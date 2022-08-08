@@ -12,6 +12,7 @@ import java.time.Instant;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.fball.lineupgen.DefaultLineUpGenerationStrategy;
 import org.fball.nflfilter.DefaultNflFilterStrategy;
+import org.fball.playernames.DefaultPlayerBlackListStrategy;
 import org.fball.points.DefaultPointStrategy;
 import org.fball.points.GabPointStrategy;
 import org.fball.points.JavyPointStrategy;
@@ -45,12 +46,14 @@ public class Main {
     private static void setDefaultStrategies(){
         Player.strategy = new DefaultPointStrategy();
         Nfl.strategy = new DefaultNflFilterStrategy();
+        Nfl.pAllowStrategy = new DefaultPlayerBlackListStrategy();
         LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
     }
 
     private static void setCustomStrategies(){
         Player.strategy = new JavyPointStrategy();
         Nfl.strategy = new DefaultNflFilterStrategy();
+        Nfl.pAllowStrategy = new DefaultPlayerBlackListStrategy();
         LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
     }
 
