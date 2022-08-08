@@ -10,7 +10,7 @@ import java.time.Duration;
 import java.time.Instant;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.fball.lineupgen.EfficiencyPointLineUpGenerationStrategy;
+import org.fball.lineupgen.DefaultLineUpGenerationStrategy;
 import org.fball.nflfilter.DefaultNflFilterStrategy;
 import org.fball.points.DefaultPointStrategy;
 
@@ -35,7 +35,7 @@ public class Main {
         //Player.strategy = new GabPointStrategy();
         Nfl.strategy = new DefaultNflFilterStrategy();
         //LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
-        LineUpFactory.strategy = new EfficiencyPointLineUpGenerationStrategy();
+        LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
     }
 
     public static Nfl getPlayers() throws URISyntaxException, IOException, InterruptedException {

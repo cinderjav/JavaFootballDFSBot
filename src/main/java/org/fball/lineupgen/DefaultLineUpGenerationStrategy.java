@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class EfficiencyPointLineUpGenerationStrategy implements ILineUpGenerationStrategy{
+public class DefaultLineUpGenerationStrategy implements ILineUpGenerationStrategy{
     private ArrayList<LineUp> lineupsResults = new ArrayList<>();
     private Nfl nfl;
     @Override

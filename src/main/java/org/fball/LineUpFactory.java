@@ -1,13 +1,13 @@
 package org.fball;
 
-import org.fball.lineupgen.EfficiencyPointLineUpGenerationStrategy;
+import org.fball.lineupgen.DefaultLineUpGenerationStrategy;
 import org.fball.lineupgen.ILineUpGenerationStrategy;
 
 import java.util.List;
 
 public class LineUpFactory {
 
-    public static ILineUpGenerationStrategy strategy = new EfficiencyPointLineUpGenerationStrategy();
+    public static ILineUpGenerationStrategy strategy = new DefaultLineUpGenerationStrategy();
     public static List<LineUp> generateBestLineUp(Nfl nfl){
         nfl = Nfl.filterNfl(nfl);
         nfl.initFlexPlayers();
