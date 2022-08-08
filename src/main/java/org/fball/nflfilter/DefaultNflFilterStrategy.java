@@ -11,7 +11,6 @@ public class DefaultNflFilterStrategy implements IFilterNflStrategy {
     @Override
     public Nfl filterNfl(Nfl nfl) {
         defaultNflFilter(nfl);
-        System.out.println("Post Filter \n%s".formatted(nfl));
         return nfl;
     }
 
