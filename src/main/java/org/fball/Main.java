@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.fball.lineupgen.DefaultLineUpGenerationStrategy;
 import org.fball.nflfilter.DefaultNflFilterStrategy;
 import org.fball.points.DefaultPointStrategy;
+import org.fball.points.JavyPointStrategy;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
@@ -31,8 +32,9 @@ public class Main {
     }
 
     private static void setDefaultStrategies(){
-        Player.strategy = new DefaultPointStrategy();
+        //Player.strategy = new DefaultPointStrategy();
         //Player.strategy = new GabPointStrategy();
+        Player.strategy = new JavyPointStrategy();
         Nfl.strategy = new DefaultNflFilterStrategy();
         //LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
         LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();

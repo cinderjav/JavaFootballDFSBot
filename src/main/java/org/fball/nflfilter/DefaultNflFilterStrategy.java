@@ -2,6 +2,7 @@ package org.fball.nflfilter;
 
 import org.fball.Nfl;
 import org.fball.Player;
+import org.fball.PlayerPointSorter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,10 +17,15 @@ public class DefaultNflFilterStrategy implements IFilterNflStrategy {
 
     private void defaultNflFilter(Nfl nfl){
         // Can add specific players to filter for week here as well
+        Collections.sort(nfl.QB, new PlayerPointSorter());
         Collections.sort(nfl.QB);
+        Collections.sort(nfl.RB, new PlayerPointSorter());
         Collections.sort(nfl.RB);
+        Collections.sort(nfl.WR, new PlayerPointSorter());
         Collections.sort(nfl.WR);
+        Collections.sort(nfl.TE, new PlayerPointSorter());
         Collections.sort(nfl.TE);
+        Collections.sort(nfl.DST, new PlayerPointSorter());
         Collections.sort(nfl.DST);
 
         nfl.QB = filterPlayers(nfl.QB, 1);

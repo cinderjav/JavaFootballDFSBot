@@ -26,6 +26,7 @@ public class Nfl {
         flexArray.addAll(RB);
         flexArray.addAll(WR);
         flexArray.addAll(TE);
+        Collections.sort(flexArray, new PlayerPointSorter());
         Collections.sort(flexArray);
         return flexArray;
     }
