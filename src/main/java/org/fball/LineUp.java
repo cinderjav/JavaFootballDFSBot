@@ -1,7 +1,6 @@
 package org.fball;
 
 import java.util.Arrays;
-import java.util.Hashtable;
 import java.util.List;
 
 public class LineUp implements Comparable<LineUp>{
@@ -19,37 +18,6 @@ public class LineUp implements Comparable<LineUp>{
     public boolean complete = false;
 
     //Support Setting Preconfigured Lineup
-
-    public void addPlayer(Player p) {
-        var filledSpots = this.getFilledSpots();
-        switch(filledSpots){
-            case 0 -> this.qbOne = p;
-            case 1 -> this.rbOne = p;
-            case 2 -> this.rbTwo = p;
-            case 3 -> this.wrOne = p;
-            case 4 -> this.wrTwo = p;
-            case 5 -> this.wrThree = p;
-            case 6 -> this.teOne = p;
-            case 7 -> this.flex = p;
-            case 8 -> this.dst = p;
-        }
-    }
-
-    public void clearLastPlayer() {
-        var filledSpots = this.getFilledSpots();
-        switch(filledSpots){
-            case 1 -> this.qbOne = null;
-            case 2 -> this.rbOne = null;
-            case 3 -> this.rbTwo = null;
-            case 4 -> this.wrOne = null;
-            case 5 -> this.wrTwo = null;
-            case 6 -> this.wrThree = null;
-            case 7 -> this.teOne = null;
-            case 8 -> this.flex = null;
-            case 9 -> this.dst = null;
-        }
-    }
-
     public double getPoints(){
         return getSafePoints(this.qbOne) +
                 getSafePoints(this.rbOne) + getSafePoints(this.rbTwo) +
@@ -60,12 +28,7 @@ public class LineUp implements Comparable<LineUp>{
     }
 
     private boolean isSalaryValid() {
-        var empSpots = getEmptySpots();
-        var underSalary = getSalary() + (10 * empSpots) <= MAX_SALARY;
-        if (!underSalary){
-            return false;
-        }
-        return true;
+        return getSalary() <= MAX_SALARY;
     }
 
     public int getSalary(){
@@ -83,10 +46,6 @@ public class LineUp implements Comparable<LineUp>{
 
     public boolean isLineupValidAndFinal(){
         return positionsValid() && isSalaryValid() && noDupesPresent() && getEmptySpots() == 0;
-    }
-
-    public Position getNextPosition(){
-        return mapSpotsToPosition();
     }
 
     public int getFilledSpots(){
@@ -112,58 +71,6 @@ public class LineUp implements Comparable<LineUp>{
         return lu;
     }
 
-    public double GetEfficiencyForSpot(int spotend){
-        if (spotend < 0) {
-            return 0;
-        }
-        var spot = spotend;
-        var pts = this.qbOne.getPlayerPoints();
-        var sal = safeSalary(qbOne);
-        spot -= 1;
-        if (spot > 0){
-            pts += this.rbOne.getPlayerPoints();
-            sal += safeSalary(this.rbOne);
-            spot -= 1;
-        }
-        if (spot > 0){
-            pts += this.rbTwo.getPlayerPoints();
-            sal += safeSalary(this.rbTwo);
-            spot -= 1;
-        }
-        if (spot > 0){
-            pts += this.wrOne.getPlayerPoints();
-            sal += safeSalary(this.wrOne);
-            spot -= 1;
-        }
-        if (spot > 0){
-            pts += this.wrTwo.getPlayerPoints();
-            sal += safeSalary(this.wrTwo);
-            spot -= 1;
-        }
-        if (spot > 0){
-            pts += this.wrThree.getPlayerPoints();
-            sal += safeSalary(this.wrThree);
-            spot -= 1;
-        }
-        if (spot > 0){
-            pts += this.teOne.getPlayerPoints();
-            sal += safeSalary(this.teOne);
-            spot -= 1;
-        }
-        if (spot > 0){
-            pts += this.flex.getPlayerPoints();
-            sal += safeSalary(this.flex);
-            spot -= 1;
-        }
-        if (spot > 0){
-            pts += this.dst.getPlayerPoints();
-            sal += safeSalary(this.dst);
-        }
-
-        var val = pts / sal;
-        return Math.round(val * 100.0) / 100.0;
-    }
-
     private boolean noDupesPresent(){
         List<Integer> lineUpIds = Arrays.asList(getSafeId(qbOne), getSafeId(rbOne), getSafeId(rbTwo),
                 getSafeId(wrOne), getSafeId(wrTwo), getSafeId(wrThree), getSafeId(teOne), getSafeId(flex), getSafeId(dst));
@@ -173,20 +80,6 @@ public class LineUp implements Comparable<LineUp>{
 
     private int getSafeId(Player p){
         return (p != null) ? p.yahooId : -1;
-    }
-
-    private Position mapSpotsToPosition() {
-        var filledSpots = this.getFilledSpots();
-        var pos = Position.QB;
-        switch(filledSpots){
-            case 0 -> pos = Position.QB;
-            case 1,2 -> pos = Position.RB;
-            case 3,4,5 -> pos = Position.WR;
-            case 6 -> pos = Position.TE;
-            case 7 -> pos = Position.FLEX;
-            case 8 -> pos = Position.DST;
-        }
-        return pos;
     }
 
     private boolean positionsValid(){

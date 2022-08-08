@@ -10,11 +10,9 @@ import java.time.Duration;
 import java.time.Instant;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.fball.lineupgen.DefaultLineUpGenerationStrategy;
 import org.fball.lineupgen.EfficiencyPointLineUpGenerationStrategy;
 import org.fball.nflfilter.DefaultNflFilterStrategy;
 import org.fball.points.DefaultPointStrategy;
-import org.fball.points.GabPointStrategy;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
