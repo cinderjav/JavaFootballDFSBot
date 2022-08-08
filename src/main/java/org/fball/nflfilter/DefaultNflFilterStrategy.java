@@ -29,9 +29,9 @@ public class DefaultNflFilterStrategy implements IFilterNflStrategy {
         Collections.sort(nfl.DST);
 
         nfl.QB = filterPlayers(nfl.QB, 1);
-        nfl.RB = filterPlayers(nfl.RB, 2);
-        nfl.WR = filterPlayers(nfl.WR, 2);
-        nfl.TE = filterPlayers(nfl.TE, 1);
+        nfl.RB = filterPlayers(nfl.RB, 3);
+        nfl.WR = filterPlayers(nfl.WR, 3);
+        nfl.TE = filterPlayers(nfl.TE, 2);
         nfl.DST = filterPlayers(nfl.DST, 1);
     }
     private ArrayList<Player> filterPlayers(ArrayList<Player> players, int finalTarget){

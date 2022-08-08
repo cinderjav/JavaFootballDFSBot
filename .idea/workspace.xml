@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="533c95de-bff7-4fc4-ba19-d314ba82ffaf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/LineUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/LineUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/Nfl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/Nfl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/nflfilter/DefaultNflFilterStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/nflfilter/DefaultNflFilterStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/points/JavyPointStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/points/JavyPointStrategy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +109,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658699116280</updated>
-      <workItem from="1658699117845" duration="102359000" />
+      <workItem from="1658699117845" duration="105920000" />
     </task>
     <servers />
   </component>
@@ -125,6 +128,15 @@
     </option>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="jdk.internal.net.http.ImmutableHttpRequest" memberName="expectContinue" />

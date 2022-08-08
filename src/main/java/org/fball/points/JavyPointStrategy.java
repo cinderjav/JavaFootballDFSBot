@@ -23,7 +23,7 @@ public class JavyPointStrategy implements IPointStrategy {
         }
 
         if (stats.getCount() > 1){
-            return ((recentScoring- (std/3)) * .25) + (p.projectedBaseFpros * .75);
+            return ((recentScoring- (std/stats.getCount())) * .25) + (p.projectedBaseFpros * .75);
         }
 
         return recentScoring;

@@ -42,6 +42,16 @@ public class Nfl {
         return strategy.filterNfl(nfl);
     }
 
+    public Nfl copyNfl(){
+        var newNfl = new Nfl();
+        newNfl.QB = new ArrayList<>(this.QB);
+        newNfl.RB = new ArrayList<>(this.RB);
+        newNfl.WR = new ArrayList<>(this.WR);
+        newNfl.TE = new ArrayList<>(this.TE);
+        newNfl.DST = new ArrayList<>(this.DST);
+        return newNfl;
+    }
+
     private String printPosition(ArrayList<Player> players, String pos) {
         StringBuilder returnString = new StringBuilder("%s(%s): ".formatted(pos, players.size()));
         for(Player p : players){

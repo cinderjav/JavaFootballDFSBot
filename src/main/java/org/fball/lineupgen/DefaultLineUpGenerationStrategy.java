@@ -128,8 +128,12 @@ public class DefaultLineUpGenerationStrategy implements ILineUpGenerationStrateg
         var diffList = getUpgradeDiffScoreList(pc, lineUp, pUpgradeContainer);
         var start = 1;
         do {
-            double max = diffList.get(diffList.size() - start);
             newLineUp = lineUp.deepCopy();
+            if (start > diffList.size()){
+                newLineUp.complete = true;
+                return newLineUp;
+            }
+            double max = diffList.get(diffList.size() - start);
             if (Double.compare(max, 0.0) == 0){
                 newLineUp.complete = true;
                 return newLineUp;
@@ -138,10 +142,6 @@ public class DefaultLineUpGenerationStrategy implements ILineUpGenerationStrateg
                     pUpgradeContainer.wrOneDiffScore, pUpgradeContainer.wrTwoDiffScore, pUpgradeContainer.wrThreeDiffScore, pUpgradeContainer.teOneDiffScore,
                     pUpgradeContainer.flexDiffScore, pUpgradeContainer.dstDiffScore);
             start += 1;
-            if (start > diffList.size()){
-                newLineUp.complete = true;
-                return newLineUp;
-            }
         } while (!newLineUp.isLineupValid());
         return newLineUp;
     }

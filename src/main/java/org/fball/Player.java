@@ -65,7 +65,7 @@ public class Player implements Comparable<Player>{
 
     @Override
     public String toString(){
-        return this.name + " [%s] [salary: %s] [efficiency: %s], ".formatted(this.getPlayerPoints(), this.salary, this.getEfficiency());
+        return this.name + " [pts:%s] [sal:%s] [eff:%s], ".formatted(this.getPlayerPoints(), this.salary, this.getEfficiency());
     }
 
     @Override

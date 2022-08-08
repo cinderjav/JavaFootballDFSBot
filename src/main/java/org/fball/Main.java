@@ -19,25 +19,38 @@ import org.fball.points.JavyPointStrategy;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
         var nflPlayers = getPlayers();
-        setStrategies();
+        var nflPlayerCopy = nflPlayers.copyNfl();
+        runCustomStrategyBot(nflPlayers);
+        runDefaultStrategyBot(nflPlayerCopy);
+    }
+
+    public static void runCustomStrategyBot(Nfl nflPlayers){
+        setCustomStrategies();
+        runBot(nflPlayers);
+    }
+    public static void runDefaultStrategyBot(Nfl nflPlayers){
+        setDefaultStrategies();
+        runBot(nflPlayers);
+    }
+
+    private static void runBot(Nfl nflPlayers){
         Instant starts = Instant.now();
         var lineups = LineUpFactory.generateBestLineUp(nflPlayers);
         Instant ends = Instant.now();
         var elapsed = Duration.between(starts, ends).toMillis();
         System.out.println(lineups);
-        System.out.println("Time Elapsed to Generate Lineup - " + elapsed/1000.0);
-    }
-
-    public static void setStrategies(){
-        setDefaultStrategies();
+        System.out.println("Time Elapsed to Generate Lineup - " + elapsed/1000.0 + "\n");
     }
 
     private static void setDefaultStrategies(){
-        //Player.strategy = new DefaultPointStrategy();
-        //Player.strategy = new GabPointStrategy();
+        Player.strategy = new DefaultPointStrategy();
+        Nfl.strategy = new DefaultNflFilterStrategy();
+        LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
+    }
+
+    private static void setCustomStrategies(){
         Player.strategy = new JavyPointStrategy();
         Nfl.strategy = new DefaultNflFilterStrategy();
-        //LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
         LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
     }
 
