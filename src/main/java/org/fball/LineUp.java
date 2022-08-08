@@ -116,6 +116,24 @@ public class LineUp implements Comparable<LineUp>{
         return (int)lineUpIds.stream().filter(x -> x == -1).count();
     }
 
+    private double getSeasonAverage(){
+        var qb = qbOne.pointsHistory.stream().mapToDouble(x -> x).summaryStatistics().getAverage();
+        var rb1 = rbOne.pointsHistory.stream().mapToDouble(x -> x).summaryStatistics().getAverage();
+        var rb2 = rbTwo.pointsHistory.stream().mapToDouble(x -> x).summaryStatistics().getAverage();
+        var wr1 = wrOne.pointsHistory.stream().mapToDouble(x -> x).summaryStatistics().getAverage();
+        var wr2 = wrTwo.pointsHistory.stream().mapToDouble(x -> x).summaryStatistics().getAverage();
+        var wr3 = wrThree.pointsHistory.stream().mapToDouble(x -> x).summaryStatistics().getAverage();
+        var te = teOne.pointsHistory.stream().mapToDouble(x -> x).summaryStatistics().getAverage();
+        var fl = flex.pointsHistory.stream().mapToDouble(x -> x).summaryStatistics().getAverage();
+        var def = dst.pointsHistory.stream().mapToDouble(x -> x).summaryStatistics().getAverage();
+        return (qb + rb1 + rb2 + wr1 + wr2 + wr3 + te + fl + def);
+    }
+
+    private double getFprosPoints() {
+        return qbOne.projectedBaseFpros + rbOne.projectedBaseFpros + rbTwo.projectedBaseFpros + wrOne.projectedBaseFpros +
+                wrTwo.projectedBaseFpros + wrThree.projectedBaseFpros + teOne.projectedBaseFpros + flex.projectedBaseFpros + dst.projectedBaseFpros;
+    }
+
     private double getSafePoints(Player p){
         if (p != null){
             return p.getPlayerPoints();
@@ -128,7 +146,9 @@ public class LineUp implements Comparable<LineUp>{
     @Override
     public String toString(){
         var returnedString = "---------------------------------------------------\n";
-        returnedString += "Projected Points: %s".formatted(this.getPoints()) + "\n";
+        returnedString += "Strategy: %s".formatted(Player.strategy.getClass().getName()) + "\n" + "Projected Points: %s".formatted(this.getPoints()) + "\n";
+        returnedString += "FPros Base Projected Points: %s".formatted(this.getFprosPoints()) + "\n";
+        returnedString += "Season Average: %s".formatted(this.getSeasonAverage()) + "\n";
         returnedString += "Salary: %s".formatted(this.getSalary()) + "\n";
         returnedString += "Efficiency: %s".formatted(this.getEfficiency()) + "\n";
         returnedString += "QB: " + qbOne + "\n" + "RB1: " + rbOne + "\n" + "RB2: " + rbTwo + "\n" + "WR1: " + wrOne + "\n" +

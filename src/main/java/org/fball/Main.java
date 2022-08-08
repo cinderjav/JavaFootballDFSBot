@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.fball.lineupgen.DefaultLineUpGenerationStrategy;
 import org.fball.nflfilter.DefaultNflFilterStrategy;
 import org.fball.points.DefaultPointStrategy;
+import org.fball.points.GabPointStrategy;
 import org.fball.points.JavyPointStrategy;
 
 public class Main {
