@@ -1,11 +1,14 @@
 package org.fball;
 
+import org.fball.playerallow.ISetLineUpPlayersStrategy;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class LineUp implements Comparable<LineUp>{
     public static final int MAX_SALARY = 200;
     public static final int TOTAL_SPOTS = 9;
+    public static ISetLineUpPlayersStrategy strategy;
     public Player qbOne;
     public Player rbOne;
     public Player rbTwo;
@@ -17,7 +20,16 @@ public class LineUp implements Comparable<LineUp>{
     public Player dst;
     public boolean complete = false;
 
-    //Support Setting Preconfigured Lineup
+    private boolean qbOneLocked = false;
+    private boolean rbOneLocked = false;
+    private boolean rbTwoLocked = false;
+    private boolean wrOneLocked = false;
+    private boolean wrTwoLocked = false;
+    private boolean wrThreeLocked = false;
+    private boolean teOneLocked = false;
+    private boolean flexLocked = false;
+    private boolean dstLocked = false;
+
     public double getPoints(){
         return getSafePoints(this.qbOne) +
                 getSafePoints(this.rbOne) + getSafePoints(this.rbTwo) +
@@ -25,6 +37,76 @@ public class LineUp implements Comparable<LineUp>{
                 getSafePoints(this.teOne) +
                 getSafePoints(this.flex) +
                 getSafePoints(this.dst);
+    }
+
+    public void lockCurrentLineupSlots(){
+        if (this.qbOne != null){
+            qbOneLocked = true;
+        }
+        if (this.rbOne != null){
+            rbOneLocked = true;
+        }
+        if (this.rbTwo != null){
+            rbTwoLocked = true;
+        }
+        if (this.wrOne != null){
+            wrOneLocked = true;
+        }
+        if (this.wrTwo != null){
+            wrTwoLocked = true;
+        }
+        if (this.wrThree != null){
+            wrThreeLocked = true;
+        }
+        if (this.teOne != null){
+            teOneLocked = true;
+        }
+        if (this.flex != null){
+            flexLocked = true;
+        }
+        if (this.dst != null){
+            dstLocked = true;
+        }
+    }
+
+    public void copyLockedFields(LineUp old){
+        this.qbOneLocked = old.qbOneLocked;
+        this.rbOneLocked = old.rbOneLocked;
+        this.rbTwoLocked = old.rbTwoLocked;
+        this.wrOneLocked = old.wrOneLocked;
+        this.wrTwoLocked = old.wrTwoLocked;
+        this.wrThreeLocked = old.wrThreeLocked;
+        this.teOneLocked = old.teOneLocked;
+        this.flexLocked = old.flexLocked;
+        this.dstLocked = old.dstLocked;
+    }
+
+    public boolean isQbOneLocked(){
+        return qbOneLocked;
+    }
+    public boolean isRbOneLocked(){
+        return rbOneLocked;
+    }
+    public boolean isRbTwoLocked(){
+        return rbTwoLocked;
+    }
+    public boolean isWrOneLocked(){
+        return wrOneLocked;
+    }
+    public boolean isWrTwoLocked(){
+        return wrTwoLocked;
+    }
+    public boolean isWrThreeLocked(){
+        return wrThreeLocked;
+    }
+    public boolean isTeOneLocked(){
+        return teOneLocked;
+    }
+    public boolean isFlexLocked(){
+        return flexLocked;
+    }
+    public boolean isDstLocked(){
+        return dstLocked;
     }
 
     private boolean isSalaryValid() {
@@ -68,7 +150,19 @@ public class LineUp implements Comparable<LineUp>{
         lu.teOne = teOne;
         lu.flex = flex;
         lu.dst = dst;
+        lu.copyLockedFields(this);
         return lu;
+    }
+
+    public static LineUp getInitialLineUp(Nfl nfl){
+        LineUp lineUp = new LineUp();
+        if (strategy != null){
+            var temp = strategy.getFixedLineUp(nfl);
+            if(temp != null && temp.isLineupValid()){
+                lineUp = temp;
+            }
+        }
+        return lineUp;
     }
 
     private boolean noDupesPresent(){

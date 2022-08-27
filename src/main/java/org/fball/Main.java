@@ -12,9 +12,9 @@ import java.time.Instant;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.fball.lineupgen.DefaultLineUpGenerationStrategy;
 import org.fball.nflfilter.DefaultNflFilterStrategy;
-import org.fball.playernames.DefaultPlayerBlackListStrategy;
+import org.fball.playerallow.DefaultLineUpPlayersStrategy;
+import org.fball.playerallow.DefaultPlayerBlackListStrategy;
 import org.fball.points.DefaultPointStrategy;
-import org.fball.points.GabPointStrategy;
 import org.fball.points.JavyPointStrategy;
 
 public class Main {
@@ -48,6 +48,7 @@ public class Main {
         Nfl.strategy = new DefaultNflFilterStrategy();
         Nfl.pAllowStrategy = new DefaultPlayerBlackListStrategy();
         LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
+        LineUp.strategy = new DefaultLineUpPlayersStrategy();
     }
 
     private static void setCustomStrategies(){
@@ -55,6 +56,7 @@ public class Main {
         Nfl.strategy = new DefaultNflFilterStrategy();
         Nfl.pAllowStrategy = new DefaultPlayerBlackListStrategy();
         LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
+        LineUp.strategy = new DefaultLineUpPlayersStrategy();
     }
 
     public static Nfl getPlayers() throws URISyntaxException, IOException, InterruptedException {

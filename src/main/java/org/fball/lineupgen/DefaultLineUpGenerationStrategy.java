@@ -13,10 +13,12 @@ public class DefaultLineUpGenerationStrategy implements ILineUpGenerationStrateg
     private ArrayList<LineUp> lineupsResults = new ArrayList<>();
     private Nfl nfl;
     @Override
-    public List<LineUp> generateLineUp(Nfl nfl) {
+    public List<LineUp> generateLineUp(Nfl nfl, LineUp initialLineUp) {
         this.nfl = nfl;
         var lineUp = new LineUp();
-        generateNextLineupOptions(lineUp, lineUp);
+        lineUp.copyLockedFields(initialLineUp);
+        //generateNextLineupOptions(lineUp, lineUp);
+        generateNextLineupOptions(lineUp, initialLineUp);
         lineupsResults.add(lineUp);
         recurse(lineUp);
         Collections.sort(lineupsResults);
@@ -28,6 +30,8 @@ public class DefaultLineUpGenerationStrategy implements ILineUpGenerationStrateg
             return;
         }
         var lineupNew = new LineUp();
+        lineupNew.copyLockedFields(lineUp);
+
         generateNextLineupOptions(lineupNew, lineUp);
         var pc = new PlayerUpdateContainer(lineupNew);
         var newLineUp = AnalyzeAndUpdate(lineUp, pc);
@@ -36,15 +40,15 @@ public class DefaultLineUpGenerationStrategy implements ILineUpGenerationStrateg
     }
 
     private void generateNextLineupOptions(LineUp newLineUp, LineUp lineUp){
-        newLineUp.qbOne = getNextPlayer(nfl.QB, lineUp.qbOne != null ? lineUp.qbOne.getPlayerPoints() : 0, newLineUp, lineUp);
-        newLineUp.flex = getNextPlayer(nfl.FLEX, lineUp.flex != null ? lineUp.flex.getPlayerPoints(): 0, newLineUp, lineUp);;
-        newLineUp.rbOne = getNextPlayer(nfl.RB, lineUp.rbOne != null ? lineUp.rbOne.getPlayerPoints(): 0, newLineUp, lineUp);
-        newLineUp.rbTwo = getNextPlayer(nfl.RB, lineUp.rbTwo != null ? lineUp.rbTwo.getPlayerPoints(): 0, newLineUp, lineUp);
-        newLineUp.wrOne = getNextPlayer(nfl.WR, lineUp.wrOne != null ? lineUp.wrOne.getPlayerPoints(): 0, newLineUp, lineUp);
-        newLineUp.wrTwo = getNextPlayer(nfl.WR, lineUp.wrTwo != null ? lineUp.wrTwo.getPlayerPoints(): 0, newLineUp, lineUp);
-        newLineUp.wrThree = getNextPlayer(nfl.WR, lineUp.wrThree != null ? lineUp.wrThree.getPlayerPoints(): 0, newLineUp, lineUp);
-        newLineUp.teOne = getNextPlayer(nfl.TE, lineUp.teOne != null ? lineUp.teOne.getPlayerPoints(): 0, newLineUp, lineUp);
-        newLineUp.dst = getNextPlayer(nfl.DST, lineUp.dst != null ? lineUp.dst.getPlayerPoints(): 0, newLineUp, lineUp);
+        newLineUp.qbOne = lineUp.isQbOneLocked() ? lineUp.qbOne : getNextPlayer(nfl.QB, lineUp.qbOne != null ? lineUp.qbOne.getPlayerPoints() : 0, newLineUp, lineUp);
+        newLineUp.flex = lineUp.isFlexLocked() ? lineUp.flex : getNextPlayer(nfl.FLEX, lineUp.flex != null ? lineUp.flex.getPlayerPoints(): 0, newLineUp, lineUp);;
+        newLineUp.rbOne = lineUp.isRbOneLocked() ? lineUp.rbOne : getNextPlayer(nfl.RB, lineUp.rbOne != null ? lineUp.rbOne.getPlayerPoints(): 0, newLineUp, lineUp);
+        newLineUp.rbTwo = lineUp.isRbTwoLocked() ? lineUp.rbTwo : getNextPlayer(nfl.RB, lineUp.rbTwo != null ? lineUp.rbTwo.getPlayerPoints(): 0, newLineUp, lineUp);
+        newLineUp.wrOne = lineUp.isWrOneLocked() ? lineUp.wrOne : getNextPlayer(nfl.WR, lineUp.wrOne != null ? lineUp.wrOne.getPlayerPoints(): 0, newLineUp, lineUp);
+        newLineUp.wrTwo = lineUp.isWrTwoLocked() ? lineUp.wrTwo : getNextPlayer(nfl.WR, lineUp.wrTwo != null ? lineUp.wrTwo.getPlayerPoints(): 0, newLineUp, lineUp);
+        newLineUp.wrThree = lineUp.isWrThreeLocked() ? lineUp.wrThree : getNextPlayer(nfl.WR, lineUp.wrThree != null ? lineUp.wrThree.getPlayerPoints(): 0, newLineUp, lineUp);
+        newLineUp.teOne = lineUp.isTeOneLocked() ? lineUp.teOne : getNextPlayer(nfl.TE, lineUp.teOne != null ? lineUp.teOne.getPlayerPoints(): 0, newLineUp, lineUp);
+        newLineUp.dst = lineUp.isDstLocked() ? lineUp.dst : getNextPlayer(nfl.DST, lineUp.dst != null ? lineUp.dst.getPlayerPoints(): 0, newLineUp, lineUp);
     }
 
     public Player getNextPlayer(ArrayList<Player> players, double currentPoints, LineUp lineUp, LineUp lineUpOg){
@@ -186,6 +190,9 @@ public class DefaultLineUpGenerationStrategy implements ILineUpGenerationStrateg
         }
     }
     private double PlayerCompare(Player current, Player nextPlayer){
+        if (current == nextPlayer){
+            return 0;
+        }
         var pointJump = nextPlayer.getPlayerPoints() - current.getPlayerPoints();
         var salaryDiff = nextPlayer.salary - current.salary;
         if (pointJump > 0 && salaryDiff < 0){

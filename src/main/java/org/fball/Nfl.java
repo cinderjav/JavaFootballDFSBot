@@ -2,7 +2,7 @@ package org.fball;
 
 import org.fball.nflfilter.DefaultNflFilterStrategy;
 import org.fball.nflfilter.IFilterNflStrategy;
-import org.fball.playernames.IPlayerBlackListStrategy;
+import org.fball.playerallow.IPlayerBlackListStrategy;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -62,10 +62,10 @@ public class Nfl {
 
     private static void removeNflPlayers(ArrayList<Player> bList, Nfl nfl){
         nfl.QB = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
-        nfl.RB = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
-        nfl.WR = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
-        nfl.TE = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
-        nfl.DST = new ArrayList<>(nfl.QB.stream().filter(p -> !bList.contains(p)).toList());
+        nfl.RB = new ArrayList<>(nfl.RB.stream().filter(p -> !bList.contains(p)).toList());
+        nfl.WR = new ArrayList<>(nfl.WR.stream().filter(p -> !bList.contains(p)).toList());
+        nfl.TE = new ArrayList<>(nfl.TE.stream().filter(p -> !bList.contains(p)).toList());
+        nfl.DST = new ArrayList<>(nfl.DST.stream().filter(p -> !bList.contains(p)).toList());
     }
 
     private String printPosition(ArrayList<Player> players, String pos) {

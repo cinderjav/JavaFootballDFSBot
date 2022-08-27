@@ -14,7 +14,10 @@ public class LineUpFactory {
         nfl.initFlexPlayers();
         System.out.println("Post Filter \n%s".formatted(nfl));
 
-        var lineups = strategy.generateLineUp(nfl);
+        LineUp initialLineUp = LineUp.getInitialLineUp(nfl);
+        initialLineUp.lockCurrentLineupSlots();
+
+        var lineups = strategy.generateLineUp(nfl, initialLineUp);
 
         for (LineUp lineUp : lineups) {
             if (!lineUp.isLineupValidAndFinal()) {

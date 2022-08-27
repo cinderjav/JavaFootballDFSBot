@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="533c95de-bff7-4fc4-ba19-d314ba82ffaf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/playernames/DefaultPlayerBlackListStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/playernames/IPlayerBlackListStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/playernames/PlayerNames.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/playerallow/DefaultLineUpPlayersStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/fball/playerallow/ISetLineUpPlayersStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/LineUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/LineUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/LineUpFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/LineUpFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/Nfl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/Nfl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/nflfilter/DefaultNflFilterStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/nflfilter/DefaultNflFilterStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/ILineUpGenerationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/lineupgen/ILineUpGenerationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/playernames/DefaultPlayerBlackListStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/playerallow/DefaultPlayerBlackListStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/playernames/IPlayerBlackListStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/playerallow/IPlayerBlackListStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/fball/playernames/PlayerNames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/fball/PlayerNames.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +115,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658699116280</updated>
-      <workItem from="1658699117845" duration="109707000" />
+      <workItem from="1658699117845" duration="117917000" />
     </task>
     <servers />
   </component>
@@ -133,8 +138,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="109" />
+          <line>17</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/fball/lineupgen/DefaultLineUpGenerationStrategy.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="114" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

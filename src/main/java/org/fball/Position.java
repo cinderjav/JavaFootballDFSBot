@@ -6,6 +6,5 @@ public enum Position {
     WR,
     DST,
     TE,
-    // Note Flex Not USed on Players Directly but it is formally a position
     FLEX
 }

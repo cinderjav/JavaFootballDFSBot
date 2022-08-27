@@ -1,4 +1,4 @@
-package org.fball.playernames;
+package org.fball;
 
 public class PlayerNames {
     public final static String STEFON_DIGGS = "Stefon Diggs";
