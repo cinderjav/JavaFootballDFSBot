@@ -15,6 +15,7 @@ import org.fball.nflfilter.DefaultNflFilterStrategy;
 import org.fball.playerallow.DefaultLineUpPlayersStrategy;
 import org.fball.playerallow.DefaultPlayerBlackListStrategy;
 import org.fball.points.DefaultPointStrategy;
+import org.fball.points.GabPointStrategy;
 import org.fball.points.JavyPointStrategy;
 
 public class Main {

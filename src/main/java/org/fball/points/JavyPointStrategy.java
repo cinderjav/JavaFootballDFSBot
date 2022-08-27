@@ -14,7 +14,7 @@ public class JavyPointStrategy implements IPointStrategy {
         var recentScoring = p.projectedBaseFpros;
         if (stats.getCount() == 1){
             recentScoring = (recentGames.get(0) + p.projectedBaseFpros)/2;
-        }else{
+        }else if (stats.getCount() > 1){
             recentScoring = stats.getAverage();
         }
         var std = 0.0;

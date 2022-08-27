@@ -11,11 +11,11 @@ public class DefaultPlayerBlackListStrategy implements IPlayerBlackListStrategy 
     public ArrayList<Player> getBlackList(Nfl nfl) {
         var blackL = new ArrayList<Player>();
         //Would be good just to iterate through entire nfl here. Should create a method for that.
-        for (Player p : nfl.QB) {
-            if (p.name.equalsIgnoreCase(PlayerNames.JOSH_ALLEN)){
-                blackL.add(p);
-            }
-        }
+//        for (Player p : nfl.WR) {
+//            if (p.name.equalsIgnoreCase(PlayerNames.TREYLON_BURKS)){
+//                blackL.add(p);
+//            }
+//        }
         return blackL;
     }
 }
