@@ -13,11 +13,13 @@ public class GabPointStrategy implements IPointStrategy{
         for(double num: lastSixGames) {
             sumsq += Math.pow(num - average, 2);
         }
-        var std =  Math.sqrt(sumsq/stats.getCount());
+        var std =  Math.sqrt((sumsq)/(stats.getCount()-1));
 
-        if (stats.getCount() < 6) {
-            return p.projectedBaseFpros;
+        if (stats.getCount() == 0) {
+            average = 1;
+            std = 1;
         }
-        return (p.projectedBaseFpros) * (average/std);
+        var returnvalue = (p.projectedBaseFpros) * (average/std);
+        return returnvalue;
     }
 }
