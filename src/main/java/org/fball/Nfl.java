@@ -3,6 +3,7 @@ package org.fball;
 import org.fball.nflfilter.DefaultNflFilterStrategy;
 import org.fball.nflfilter.IFilterNflStrategy;
 import org.fball.playerallow.IPlayerBlackListStrategy;
+import org.fball.utils.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,10 +70,12 @@ public class Nfl {
     }
 
     private String printPosition(ArrayList<Player> players, String pos) {
-        StringBuilder returnString = new StringBuilder("%s(%s): ".formatted(pos, players.size()));
-        for(Player p : players){
-            returnString.append(p);
-        }
+        TableStringBuilder<Player> t = new TableStringBuilder<Player>();
+        t.addColumn("Name", Player::getName);
+        t.addColumn("Points", Player::getPlayerPoints);
+        t.addColumn("Salary", Player::getSalary);
+        t.addColumn("Efficiency", Player::getEfficiency);
+        var returnString = t.createString(players);
         return returnString + "\n";
     }
 }

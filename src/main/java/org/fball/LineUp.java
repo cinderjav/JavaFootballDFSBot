@@ -237,18 +237,24 @@ public class LineUp implements Comparable<LineUp>{
         }
     }
 
+    /**
+     * @return Players in lineup for print line formatting
+     */
+    public List<Player> getPlayersInLineup(){
+        return Arrays.asList(qbOne, rbOne, rbTwo, wrOne, wrTwo, wrThree, teOne, flex, dst);
+    }
+
     @Override
     public String toString(){
-        var returnedString = "---------------------------------------------------\n";
-        returnedString += "Strategy: %s".formatted(Player.strategy.getClass().getName()) + "\n" + "Projected Points: %s".formatted(this.getPoints()) + "\n";
+        var returnedString = "Strategy: %s".formatted(Player.strategy.getClass().getName()) + "\n" + "Projected Points: %s".formatted(this.getPoints()) + "\n";
         returnedString += "FPros Base Projected Points: %s".formatted(this.getFprosPoints()) + "\n";
         returnedString += "Season Average: %s".formatted(this.getSeasonAverage()) + "\n";
         returnedString += "Salary: %s".formatted(this.getSalary()) + "\n";
         returnedString += "Efficiency: %s".formatted(this.getEfficiency()) + "\n";
-        returnedString += "QB: " + qbOne + "\n" + "RB1: " + rbOne + "\n" + "RB2: " + rbTwo + "\n" + "WR1: " + wrOne + "\n" +
-                "WR2: " + wrTwo + "\n" + "WR3: " + wrThree + "\n" + "TE: " + teOne + "\n" +
-                "FLEX: " + flex + "\n" + "DST: " + dst + "\n";
-        returnedString += "---------------------------------------------------\n";
+        // returnedString += "QB: " + qbOne + "\n" + "RB1: " + rbOne + "\n" + "RB2: " + rbTwo + "\n" + "WR1: " + wrOne + "\n" +
+        //         "WR2: " + wrTwo + "\n" + "WR3: " + wrThree + "\n" + "TE: " + teOne + "\n" +
+        //         "FLEX: " + flex + "\n" + "DST: " + dst + "\n";
+        // returnedString += "---------------------------------------------------\n";
         return returnedString;
     }
 

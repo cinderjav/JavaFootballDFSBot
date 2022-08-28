@@ -58,6 +58,15 @@ public class Player implements Comparable<Player>{
         return this.position;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
+    public int getSalary(){
+        return this.salary;
+    }
+
+
     public double getEfficiency(){
         var val =  getPlayerPoints()/salary;
         return Math.round(val * 100.0) / 100.0;
@@ -65,7 +74,7 @@ public class Player implements Comparable<Player>{
 
     @Override
     public String toString(){
-        return this.name + " [pts:%s] [sal:%s] [eff:%s], ".formatted(this.getPlayerPoints(), this.salary, this.getEfficiency());
+        return this.name + "[pts:%s] [sal:%s] [eff:%s]".formatted(this.getPlayerPoints(), this.salary, this.getEfficiency());
     }
 
     @Override
