@@ -13,7 +13,7 @@ public class LineUpFactory {
         nfl = Nfl.filterNfl(nfl);
         nfl.initFlexPlayers();
         System.out.println("Post Filter \n%s".formatted(nfl));
-
+        // Need to ensure this is ahead of nfl filter.
         LineUp initialLineUp = LineUp.getInitialLineUp(nfl);
         initialLineUp.lockCurrentLineupSlots();
 
