@@ -241,6 +241,16 @@ public class LineUp implements Comparable<LineUp>{
      * @return Players in lineup for print line formatting
      */
     public List<Player> getPlayersInLineup(){
+        qbOne.lineupPosition = "QB";
+        rbOne.lineupPosition = "RB1";
+        rbTwo.lineupPosition = "RB2";
+        wrOne.lineupPosition = "WR1";
+        wrTwo.lineupPosition = "WR2";
+        wrThree.lineupPosition = "WR3";
+        teOne.lineupPosition = "TE";
+        flex.lineupPosition = "Flex";
+        dst.lineupPosition = "DST";
+        
         return Arrays.asList(qbOne, rbOne, rbTwo, wrOne, wrTwo, wrThree, teOne, flex, dst);
     }
 

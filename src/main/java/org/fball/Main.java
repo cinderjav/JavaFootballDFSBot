@@ -49,7 +49,7 @@ public class Main {
 
     private static void printLineups(List<LineUp> lineups){
         TableStringBuilder<Player> t = new TableStringBuilder<Player>();
-        t.addColumn("Position", Player::getPosition);
+        t.addColumn("Position", Player::getLineupPosition);
         t.addColumn("Name", Player::getName);
         t.addColumn("Points", Player::getPlayerPoints);
         t.addColumn("Salary", Player::getSalary);

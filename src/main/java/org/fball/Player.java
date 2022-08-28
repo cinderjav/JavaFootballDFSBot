@@ -9,6 +9,7 @@ public class Player implements Comparable<Player>{
     public String name;
     public int salary;
     public String position;
+    public String lineupPosition;
     @JsonProperty("page_url")
     public String pageUrl;
     @JsonProperty("opponent_id")
@@ -56,6 +57,10 @@ public class Player implements Comparable<Player>{
 
     public String getPosition (){
         return this.position;
+    }
+
+    public String getLineupPosition(){
+        return this.lineupPosition;
     }
 
     public String getName(){
