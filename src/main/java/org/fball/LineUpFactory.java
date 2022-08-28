@@ -12,7 +12,7 @@ public class LineUpFactory {
     public static List<LineUp> generateBestLineUp(Nfl nfl){
         nfl = Nfl.filterNfl(nfl);
         nfl.initFlexPlayers();
-        // System.out.println("Post Filter \n%s".formatted(nfl));
+        System.out.println("Post Filter \n%s".formatted(nfl));
 
         LineUp initialLineUp = LineUp.getInitialLineUp(nfl);
         initialLineUp.lockCurrentLineupSlots();
