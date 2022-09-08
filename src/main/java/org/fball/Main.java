@@ -8,6 +8,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.fball.lineupgen.DefaultLineUpGenerationStrategy;
@@ -17,6 +18,7 @@ import org.fball.playerallow.DefaultPlayerBlackListStrategy;
 import org.fball.points.DefaultPointStrategy;
 import org.fball.points.GabPointStrategy;
 import org.fball.points.JavyPointStrategy;
+import org.fball.utils.TableStringBuilder;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
@@ -40,8 +42,26 @@ public class Main {
         var lineups = LineUpFactory.generateBestLineUp(nflPlayers);
         Instant ends = Instant.now();
         var elapsed = Duration.between(starts, ends).toMillis();
-        System.out.println(lineups);
+        // System.out.println(lineups);
+        printLineups(lineups);
         System.out.println("Time Elapsed to Generate Lineup - " + elapsed/1000.0 + "\n");
+    }
+
+    private static void printLineups(List<LineUp> lineups){
+        TableStringBuilder<Player> t = new TableStringBuilder<Player>();
+        t.addColumn("Position", Player::getLineupPosition);
+        t.addColumn("Name", Player::getName);
+        t.addColumn("Points", Player::getPlayerPoints);
+        t.addColumn("Salary", Player::getSalary);
+        t.addColumn("Efficiency", Player::getEfficiency);
+
+        lineups.forEach(lineup -> {
+            System.out.println("--------------------------------------------");
+            System.out.println(lineup);
+            String s = t.createString(lineup.getPlayersInLineup());
+            System.out.println(s);
+            System.out.println("--------------------------------------------");
+        });
     }
 
     private static void setDefaultStrategies(){
