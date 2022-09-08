@@ -9,11 +9,12 @@ public class JavyPointStrategy implements IPointStrategy {
     @Override
     public double getPoints(Player p) {
         var pointHistory = p.pointsHistory;
+        pointHistory.removeIf(x -> x <= 0);
         var recentGames = pointHistory.stream().limit(3).toList();
         var stats = recentGames.stream().mapToDouble(x -> x).summaryStatistics();
         var recentScoring = p.projectedBaseFpros;
         if (stats.getCount() == 1){
-            recentScoring = (recentGames.get(0) + p.projectedBaseFpros)/2;
+            recentScoring = (recentGames.get(0) * .25) + (p.projectedBaseFpros * .75);
         }else if (stats.getCount() > 1){
             recentScoring = stats.getAverage();
         }
@@ -23,7 +24,7 @@ public class JavyPointStrategy implements IPointStrategy {
         }
 
         if (stats.getCount() > 1){
-            return ((recentScoring- (std/stats.getCount())) * .25) + (p.projectedBaseFpros * .75);
+            return ((recentScoring - (std/3)) * .25) + (p.projectedBaseFpros * .75);
         }
 
         return recentScoring;

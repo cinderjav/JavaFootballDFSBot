@@ -53,7 +53,7 @@ public class Main {
     }
 
     private static void setCustomStrategies(){
-        Player.strategy = new GabPointStrategy();
+        Player.strategy = new JavyPointStrategy();
         Nfl.strategy = new DefaultNflFilterStrategy();
         Nfl.pAllowStrategy = new DefaultPlayerBlackListStrategy();
         LineUpFactory.strategy = new DefaultLineUpGenerationStrategy();
